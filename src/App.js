@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 
+import User from './components/User';
+
 class App extends React.Component {
   state = {
     avatar: '',
@@ -32,21 +34,15 @@ class App extends React.Component {
     return(
     <div className='app'>
       <div className='header'>
-      <h1>GITHUB INFO</h1>
-      <form>
-        <input />
-        <button>Search</button>
-      </form>
-      </div>
-      <div className='User'>
-        <div className='avatar'>
-          <img width='300' src={this.state.avatar} />
+        <h1>GITHUB INFO</h1>
+        <div className='searchbar'>
+        <form>
+          <input />
+          <button>Search</button>
+        </form>
         </div>
-        <h3>{this.state.name}</h3>
-        <h6>({this.state.username})</h6>
-        <h4>Repos: {this.state.repos}</h4>
-        <h4>Followers: {this.state.followers}</h4>
       </div>
+      <User avatar={this.state.avatar} name={this.state.name} username={this.state.username} repos={this.state.repos} followers={this.state.followers}/>
       <div className='follower-list'>
         <h3>FOLLOWERS:</h3>
         <div className='follower'>
